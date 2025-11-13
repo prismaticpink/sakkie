@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+html, body {
+    cursor: url('cursor.gif'), auto;
+}
+
+a {
+  cursor: url('cursor.gif'), auto;
+  color: #bc83a4;
+  text-shadow: #fff 1px 0px, #fff -1px 0px, #fff 0px 1px, #fff 0px -1px;
+  text-decoration: none;
+}
+
+* {
+    scrollbar-color: #bc83a4 #e6e6e670;
+    scrollbar-width: thin;
+}
+
+h1 {
+    font-family: 'DynaPuff', cursive;
+    font-weight: 700;
+    letter-spacing: 10px;
+    text-transform: lowercase;
+    font-size: 60px;
+    text-shadow: #f3cdec 1px 0px, #f3cdec -1px 0px, #f3cdec 0px 1px, #f3cdec 0px -1px, #f3cdec 5px 5px 5px;
+    color: #fff;
+    margin-bottom: -20px;
+    
+}
+
+h4 a {
+    font-family: 'Schoolbell', cursive;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: #fff 1px 0px, #fff -1px 0px, #fff 0px 1px, #fff 0px -1px;
+}
+
+a:hover {
+    letter-spacing: 3px;
+    background-color: rgba(158, 101, 133, 0.293);
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    background-color: #ceb1c8;
+    background: linear-gradient(rgba(190, 147, 182, 0.619), rgba(99, 69, 84, 0.5)), url('background.jpg');
+    background-attachment: fixed;
+    color: #585858;
+    letter-spacing: 1px;
+}
+
+header {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 50px 0 50px;
+}
+
+section {
+    width: 500px;
+    height: 450px;
+    padding: 20px;
+    background-color: #ffffff7b;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+td {
+    padding: 10px;
+    text-align: justify;
+    background-color: #ffffff69;
+    
+}
+
+p {
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+strong {
+    font-family: 'DynaPuff', cursive;
+    color: #bc83a4;
+    text-shadow: #fff 1px 0px, #fff -1px 0px, #fff 0px 1px, #fff 0px -1px;
+}
+
+footer a {
+    font-family: 'DynaPuff', cursive;
+    text-decoration: none;
+    text-shadow: #fff 1px 0px, #fff -1px 0px, #fff 0px 1px, #fff 0px -1px;
+}
+
+
+footer {
+    position: relative;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    margin-top: -30px;
+    color: #ffffff;
+    padding: 2em 0 2em 0;
+    float: left;
+    width: 100%;
+    text-transform: lowercase;
+    font-family: 'Schoolbell', cursive;
+}
+
+@media (max-width: 767px) {
+  body {
+    width: 95%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    margin-left: -25px;
+  }
+
+  a:hover {
+    letter-spacing: 0;
+  }
+
+  header {
+    max-width: 62vw;
+  }
+
+  section {
+    max-width: 80%;
+    height: auto;
+    overflow-y: visible;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-delete {
+    display: none;
+  }
+}
