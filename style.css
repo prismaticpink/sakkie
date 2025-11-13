@@ -76,6 +76,7 @@ table {
     border-spacing: 5px;
     text-align: left;
     width: 100%;
+    margin-top: 10px;
 }
 
 td {
@@ -94,6 +95,12 @@ strong {
     font-family: 'DynaPuff', cursive;
     color: #bc83a4;
     text-shadow: #fff 1px 0px, #fff -1px 0px, #fff 0px 1px, #fff 0px -1px;
+}
+
+.button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer a {
