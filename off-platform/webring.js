@@ -4,7 +4,11 @@
       title: "Prismatic Pink"
     },
     {
-      url: "https://crisjr.eng.br/",
+      url: "https://www.crisjr.eng.br/",
       title: "Cris Silva Jr"
+    },
+        {
+      url: "https://www.valentinely.cc/",
+      title: "Valentinely"
     },
   ];
