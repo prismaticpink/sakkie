@@ -1,5 +1,9 @@
   const members = [
     {
+      url: "https://sakk.ie/off-platform/",
+      title: "Off-Platform Webring"
+    },
+    {
       url: "https://prismatic.pink/",
       title: "Prismatic Pink"
     },
