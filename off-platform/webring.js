@@ -19,4 +19,12 @@
       url: "https://cabbagesorter.net/",
       title: "cabbagesorter"
     },
+                {
+      url: "https://snowvalley.online/",
+      title: "Snow Valley"
+    },
+                {
+      url: "https://inspiremari.nl/",
+      title: "InspireMari"
+    },
   ];
