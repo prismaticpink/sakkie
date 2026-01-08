@@ -4,6 +4,10 @@
 
 html, body {
     cursor: url('cursor.gif'), auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 a {
@@ -65,6 +69,10 @@ body {
     margin: 0;
     background-color: #ceb1c8;
     background: linear-gradient(rgba(190, 147, 182, 0.619), rgba(99, 69, 84, 0.5)), url('background.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     color: #585858;
     letter-spacing: 1px;
