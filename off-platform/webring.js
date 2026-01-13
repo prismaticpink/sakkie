@@ -39,4 +39,16 @@
       url: "https://melankorin.net/",
       title: "melankorin.net"
     },
+    {
+      url: "https://adilene.net/",
+      title: "HAPPY END"
+    },
+    {
+      url: "https://mask.pet/",
+      title: "mask pet"
+    },
+    {
+      url: "https://kissing.computer/",
+      title: "Kissing.Computer"
+    },
   ];
