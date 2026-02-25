@@ -28,7 +28,7 @@
       title: "BungleOnline"
     },
     {
-      url: "https://ophanimkei.com/",
+      url: "https://www.ophanimkei.com/",
       title: "ophanimkei"
     },
     {
@@ -40,8 +40,8 @@
       title: "HAPPY END"
     },
     {
-      url: "https://mask.pet/",
-      title: "mask pet"
+      url: "https://www.muffle.info/",
+      title: "muffle info"
     },
     {
       url: "https://kissing.computer/",
