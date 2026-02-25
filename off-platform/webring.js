@@ -41,7 +41,7 @@
     },
     {
       url: "https://www.muffle.info/",
-      title: "muffle info"
+      title: "muffle"
     },
     {
       url: "https://kissing.computer/",
