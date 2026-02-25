@@ -1,9 +1,5 @@
   const members = [
     {
-      url: "https://sakk.ie/off-platform/",
-      title: "Off-Platform Webring"
-    },
-    {
       url: "https://prismatic.pink/",
       title: "Prismatic Pink"
     },
@@ -50,5 +46,9 @@
     {
       url: "https://kissing.computer/",
       title: "Kissing.Computer"
+    },
+    {
+      url: "https://dolly.baby/",
+      title: "Doll's Dream"
     },
   ];
