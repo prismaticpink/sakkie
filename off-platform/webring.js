@@ -51,4 +51,8 @@
       url: "https://dolly.baby/",
       title: "Doll's Dream"
     },
+    {
+      url: "https://lollyrots.com/",
+      title: "Lollyrots"
+    },
   ];
