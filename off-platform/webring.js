@@ -55,4 +55,12 @@
       url: "https://lollyrots.com/",
       title: "Lollyrots"
     },
+    {
+      url: "https://claranguyen.me/",
+      title: "iDestyKK"
+    },
+    {
+      url: "https://prudas.lt/",
+      title: "eglės prūdas"
+    },
   ];
