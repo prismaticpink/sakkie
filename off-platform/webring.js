@@ -40,8 +40,8 @@
       title: "HAPPY END"
     },
     {
-      url: "https://www.muffle.info/",
-      title: "muffle"
+      url: "https://leashme.today/",
+      title: "Leash me today"
     },
     {
       url: "https://kissing.computer/",
@@ -62,5 +62,9 @@
     {
       url: "https://prudas.lt/",
       title: "eglės prūdas"
+    },
+    {
+      url: "https://www.valycenegative.it/",
+      title: "Valyce Negative"
     },
   ];
