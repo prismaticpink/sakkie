@@ -40,8 +40,8 @@
       title: "HAPPY END"
     },
     {
-      url: "https://leashme.today/",
-      title: "Leash me today"
+      url: "https://riri.my/",
+      title: "Rina's Space"
     },
     {
       url: "https://kissing.computer/",
@@ -66,5 +66,9 @@
     {
       url: "https://www.valycenegative.it/",
       title: "Valyce Negative"
+    },
+    {
+      url: "https://www.lislecoombs.me/",
+      title: "Lisle Coombs"
     },
   ];
