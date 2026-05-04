@@ -91,13 +91,16 @@ function addPixelsToLeft(element, diff) {
 const createNewPetal = () => {
   let petal = document.createElement("img");
 
+  // TODO prevents petals from expanding the scroll view
+
   petal.id = "petal-" + randomString(10);
   petal.src = "petal.png";
   petal.gravity = randomIntBetween(PETAL_MIN_GRAVITY, PETAL_MAX_GRAVITY);
   petal.speed = randomIntBetween(PETAL_MIN_SPEED, PETAL_MAX_SPEED);
   petal.style.position = "absolute";
+  petal.style.pointerEvents = "none";
+  petal.style.overflow = "hidden";
   petal.style.top = "-10px";
-  petal.style.pointerEvents = "none"
   petal.style.left = toPixels(randomIntBetween(
     PETAL_SPAWN_MARGIN,
     window.innerWidth - PETAL_SPAWN_MARGIN
