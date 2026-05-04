@@ -1,8 +1,12 @@
-const FRAMERATE = 1000 / 60;
-const UNTIL_NEXT_MIN = 10;
-const UNTIL_NEXT_MAX = 1000;
-const PETAL_MIN_SPEED = 1;
-const PETAL_MAX_SPEED = 11;
+const FRAMERATE = 1000 / 30;
+const UNTIL_NEXT_MIN = 1000;
+const UNTIL_NEXT_MAX = 3000;
+const PETAL_MIN_GRAVITY = 1;
+const PETAL_MAX_GRAVITY = 3;
+const PETAL_MIN_SPEED = -3;
+const PETAL_MAX_SPEED = 3;
+const PETAL_SPAWN_MARGIN = 10;
+const MAX_NUMBER_OF_PETALS = 50;
 
 var PETALS = { };
 var UNTIL_NEXT_PETAL = 0;
@@ -73,6 +77,15 @@ function addPixelsToTop(element, diff) {
 }
 
 /**
+ * Add a certain number of pixels to `left` style
+ */
+function addPixelsToLeft(element, diff) {
+  const left = fromPixels(element.style.left); 
+  element.style.left = toPixels(left + diff);
+  return element;
+}
+
+/**
  * Create a new petal element
  */
 const createNewPetal = () => {
@@ -80,12 +93,15 @@ const createNewPetal = () => {
 
   petal.id = "petal-" + randomString(10);
   petal.src = "petal.png";
-  petal.style.position = "absolute";
-  petal.style.top = "0px";
-  // TODO make petals span the whole screen
-  // TODO make petals click-through
-  petal.style.left= randomIntBetween(10, 700) + "px";
+  petal.gravity = randomIntBetween(PETAL_MIN_GRAVITY, PETAL_MAX_GRAVITY);
   petal.speed = randomIntBetween(PETAL_MIN_SPEED, PETAL_MAX_SPEED);
+  petal.style.position = "absolute";
+  petal.style.top = "-10px";
+  petal.style.pointerEvents = "none"
+  petal.style.left = toPixels(randomIntBetween(
+    PETAL_SPAWN_MARGIN,
+    window.innerWidth - PETAL_SPAWN_MARGIN
+  ));
 
   document.body.appendChild(petal);
 
@@ -93,12 +109,24 @@ const createNewPetal = () => {
 };
 
 /**
+ * updates petal position per frame
+ */
+const updatePetal = (petal) => {
+  petal = addPixelsToTop(petal, petal.gravity);
+  petal = addPixelsToLeft(petal, petal.speed);
+  return petal;
+};
+
+/**
  * checks if a petal element is visible on screen
  */
 const withinScreen = (petal) => {
-  if (fromPixels(petal.style.top) > document.body.scrollHeight) {
+  if (fromPixels(petal.style.top) > window.innerHeight)
     return false;
-  }
+  if (fromPixels(petal.style.left) > window.innerWidth)
+    return false;
+  if (fromPixels(petal.style.left) < -30)
+    return false;
 
   return true;
 };
@@ -116,8 +144,10 @@ const setupPetals = () => {
 const updatePetals = () => {
   // adding new petals if the time has come
   if (UNTIL_NEXT_PETAL <= 0) {
-    let newPetal = createNewPetal();
-    PETALS[newPetal.id] = newPetal;
+    if (sizeOf(PETALS) < MAX_NUMBER_OF_PETALS) {
+      let newPetal = createNewPetal();
+      PETALS[newPetal.id] = newPetal;
+    }
 
     UNTIL_NEXT_PETAL = randomIntBetween(UNTIL_NEXT_MIN, UNTIL_NEXT_MAX);
   } else {
@@ -128,8 +158,7 @@ const updatePetals = () => {
   let nextPetals = { };
 
   for (var [petalId, petal] of Object.entries(PETALS)) {
-    // TODO make petals move horizontally as well
-    petal = addPixelsToTop(petal, petal.speed);
+    petal = updatePetal(petal);
 
     if (withinScreen(petal)) {
       nextPetals[petal.id] = petal;
