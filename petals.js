@@ -82,6 +82,8 @@ const createNewPetal = () => {
   petal.src = "petal.png";
   petal.style.position = "absolute";
   petal.style.top = "0px";
+  // TODO make petals span the whole screen
+  // TODO make petals click-through
   petal.style.left= randomIntBetween(10, 700) + "px";
   petal.speed = randomIntBetween(PETAL_MIN_SPEED, PETAL_MAX_SPEED);
 
@@ -126,6 +128,7 @@ const updatePetals = () => {
   let nextPetals = { };
 
   for (var [petalId, petal] of Object.entries(PETALS)) {
+    // TODO make petals move horizontally as well
     petal = addPixelsToTop(petal, petal.speed);
 
     if (withinScreen(petal)) {
