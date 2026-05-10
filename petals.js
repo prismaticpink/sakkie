@@ -7,6 +7,7 @@ const PETAL_MIN_SPEED = -3;
 const PETAL_MAX_SPEED = 3;
 const PETAL_SPAWN_MARGIN = 10;
 const MAX_NUMBER_OF_PETALS = 50;
+const CONTAINER_ID = "petal-container";
 
 var PETALS = { };
 var UNTIL_NEXT_PETAL = 0;
@@ -26,15 +27,14 @@ function randomIntBetween(min, max) {
  * Generates a random string with a determined length
  */
 function randomString(length) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const charactersLength = characters.length;
-    let counter = 0;
-    while (counter < length) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-      counter += 1;
-    }
-    return result;
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let result = '';
+
+  for (var i = 0; i < length; i++)
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+  return result;
 }
 
 /**
@@ -88,42 +88,38 @@ function addPixelsToLeft(element, diff) {
 /**
  * Create a new petal element
  */
-const createNewPetal = () => {
-  let petal = document.createElement("img");
-
-  // TODO prevents petals from expanding the scroll view
+function createNewPetal() {
+  var petal = document.createElement("img");
 
   petal.id = "petal-" + randomString(10);
   petal.src = "petal.png";
   petal.gravity = randomIntBetween(PETAL_MIN_GRAVITY, PETAL_MAX_GRAVITY);
   petal.speed = randomIntBetween(PETAL_MIN_SPEED, PETAL_MAX_SPEED);
   petal.style.position = "absolute";
-  petal.style.pointerEvents = "none";
-  petal.style.overflow = "hidden";
   petal.style.top = "-10px";
   petal.style.left = toPixels(randomIntBetween(
     PETAL_SPAWN_MARGIN,
     window.innerWidth - PETAL_SPAWN_MARGIN
   ));
 
-  document.body.appendChild(petal);
+  document.getElementById(CONTAINER_ID).appendChild(petal);
 
   return petal;
-};
+}
 
 /**
  * updates petal position per frame
  */
-const updatePetal = (petal) => {
+function updatePetal(petal) {
   petal = addPixelsToTop(petal, petal.gravity);
   petal = addPixelsToLeft(petal, petal.speed);
   return petal;
-};
+}
 
 /**
  * checks if a petal element is visible on screen
  */
-const withinScreen = (petal) => {
+function withinScreen(petal) {
   if (fromPixels(petal.style.top) > window.innerHeight)
     return false;
   if (fromPixels(petal.style.left) > window.innerWidth)
@@ -132,23 +128,36 @@ const withinScreen = (petal) => {
     return false;
 
   return true;
-};
+}
 
 // ##################
 // # MAIN FUNCTIONS #
 // ##################
 
-const setupPetals = () => {
+function setupPetals() {
   PETALS = { };
   UNTIL_NEXT_PETAL = 0;
-  updatePetals();
-};
+  var container = document.createElement("div");
 
-const updatePetals = () => {
+  container.id = CONTAINER_ID;
+  container.style.position = "absolute";
+  container.style.pointerEvents = "none";
+  container.style.overflow = "hidden";
+  container.style.margin = "0";
+  container.style.left = "0";
+  container.style.right = "0";
+  container.style.width = "inherit";
+  container.style.height = "inherit";
+
+  document.body.appendChild(container);
+  updatePetals();
+}
+
+function updatePetals() {
   // adding new petals if the time has come
   if (UNTIL_NEXT_PETAL <= 0) {
     if (sizeOf(PETALS) < MAX_NUMBER_OF_PETALS) {
-      let newPetal = createNewPetal();
+      var newPetal = createNewPetal();
       PETALS[newPetal.id] = newPetal;
     }
 
@@ -158,7 +167,7 @@ const updatePetals = () => {
   }
 
   // updating petals
-  let nextPetals = { };
+  var nextPetals = { };
 
   for (var [petalId, petal] of Object.entries(PETALS)) {
     petal = updatePetal(petal);
@@ -171,7 +180,7 @@ const updatePetals = () => {
   }
 
   PETALS = nextPetals;
-};
+}
 
 setupPetals();
 setInterval(updatePetals, FRAMERATE);
