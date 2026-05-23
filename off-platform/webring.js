@@ -79,4 +79,8 @@
       url: "https://virtualdreamland.net/",
       title: "Virtual Dreamland"
     },
+    {
+      url: "https://nxtrx.xyz/",
+      title: "nxtrx.xyz"
+    },
   ];
