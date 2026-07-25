@@ -83,4 +83,40 @@
       url: "https://nxtrx.xyz/",
       title: "nxtrx.xyz"
     },
+    {
+      url: "https://vicbartends.com/",
+      title: "vicbartends.com"
+    },
+    {
+      url: "https://clownzcorner.com/",
+      title: "Clown's Corner"
+    },
+    {
+      url: "https://gg8473.com/",
+      title: "gg8473"
+    },
+    {
+      url: "https://tilde.club/~athanasia/",
+      title: "athanasia"
+    },
+    {
+      url: "https://phillipsuk.org/",
+      title: "Robin Phillips"
+    },
+    {
+      url: "https://kyleobrien.me/",
+      title: "KyleO IO"
+    },
+    {
+      url: "https://languid.ch/",
+      title: "languid.ch"
+    },
+    {
+      url: "https://fr3akz0ne.com/",
+      title: "F r 3 a k z 0 n e"
+    },
+    {
+      url: "https://rice.place/",
+      title: "riceplace"
+    },
   ];
